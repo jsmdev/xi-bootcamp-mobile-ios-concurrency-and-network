@@ -44,6 +44,14 @@
 		62A697A323E89BD600CCEA3E /* LatestTopicsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A697A223E89BD600CCEA3E /* LatestTopicsRequest.swift */; };
 		62A697A623E89C2200CCEA3E /* LatestTopicsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A697A523E89C2200CCEA3E /* LatestTopicsResponse.swift */; };
 		62A697A823E89E6700CCEA3E /* DiscourseClientLocalDataManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A697A723E89E6700CCEA3E /* DiscourseClientLocalDataManagerImpl.swift */; };
+		90D68F3B25B8A410005D6F1B /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F3A25B8A410005D6F1B /* UsersViewModel.swift */; };
+		90D68F3F25B8A431005D6F1B /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F3D25B8A431005D6F1B /* UsersViewController.swift */; };
+		90D68F4025B8A431005D6F1B /* UsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D68F3E25B8A431005D6F1B /* UsersViewController.xib */; };
+		90D68F4325B8A455005D6F1B /* UsersDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F4225B8A455005D6F1B /* UsersDataManager.swift */; };
+		90D68F4625B8A48F005D6F1B /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F4525B8A48F005D6F1B /* UserDetailViewModel.swift */; };
+		90D68F4B25B8A4A9005D6F1B /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F4925B8A4A9005D6F1B /* UserDetailViewController.swift */; };
+		90D68F4C25B8A4A9005D6F1B /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D68F4A25B8A4A9005D6F1B /* UserDetailViewController.xib */; };
+		90D68F4F25B8A4C7005D6F1B /* UserDetailDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F4E25B8A4C7005D6F1B /* UserDetailDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +94,14 @@
 		62A697A223E89BD600CCEA3E /* LatestTopicsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestTopicsRequest.swift; sourceTree = "<group>"; };
 		62A697A523E89C2200CCEA3E /* LatestTopicsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestTopicsResponse.swift; sourceTree = "<group>"; };
 		62A697A723E89E6700CCEA3E /* DiscourseClientLocalDataManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscourseClientLocalDataManagerImpl.swift; sourceTree = "<group>"; };
+		90D68F3A25B8A410005D6F1B /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		90D68F3D25B8A431005D6F1B /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		90D68F3E25B8A431005D6F1B /* UsersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersViewController.xib; sourceTree = "<group>"; };
+		90D68F4225B8A455005D6F1B /* UsersDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataManager.swift; sourceTree = "<group>"; };
+		90D68F4525B8A48F005D6F1B /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
+		90D68F4925B8A4A9005D6F1B /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		90D68F4A25B8A4A9005D6F1B /* UserDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
+		90D68F4E25B8A4C7005D6F1B /* UserDetailDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,11 +174,13 @@
 				62015CC923EF19E600673EBB /* Extensions */,
 				627DC5C923E603A9006D8615 /* Model */,
 				627DC5C623E6036F006D8615 /* DataManager */,
+				627DC5BC23E5F775006D8615 /* Coordinator */,
 				627DC5C123E5FED6006D8615 /* Topics */,
 				62015CBE23EF0F6C00673EBB /* TopicDetail */,
 				62015CCC23EF1F4200673EBB /* AddTopic */,
 				62015CD923EF300200673EBB /* Categories */,
-				627DC5BC23E5F775006D8615 /* Coordinator */,
+				90D68F3825B8A3B3005D6F1B /* Users */,
+				90D68F3925B8A3D7005D6F1B /* UserDetail */,
 				627DC5A823E5F580006D8615 /* AppDelegate.swift */,
 				627DC5AA23E5F580006D8615 /* SceneDelegate.swift */,
 				627DC5B123E5F581006D8615 /* Assets.xcassets */,
@@ -256,6 +274,28 @@
 			path = Responses;
 			sourceTree = "<group>";
 		};
+		90D68F3825B8A3B3005D6F1B /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				90D68F4225B8A455005D6F1B /* UsersDataManager.swift */,
+				90D68F3A25B8A410005D6F1B /* UsersViewModel.swift */,
+				90D68F3D25B8A431005D6F1B /* UsersViewController.swift */,
+				90D68F3E25B8A431005D6F1B /* UsersViewController.xib */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		90D68F3925B8A3D7005D6F1B /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				90D68F4E25B8A4C7005D6F1B /* UserDetailDataManager.swift */,
+				90D68F4525B8A48F005D6F1B /* UserDetailViewModel.swift */,
+				90D68F4925B8A4A9005D6F1B /* UserDetailViewController.swift */,
+				90D68F4A25B8A4A9005D6F1B /* UserDetailViewController.xib */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -315,6 +355,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				627DC5B523E5F581006D8615 /* LaunchScreen.storyboard in Resources */,
+				90D68F4C25B8A4A9005D6F1B /* UserDetailViewController.xib in Resources */,
+				90D68F4025B8A431005D6F1B /* UsersViewController.xib in Resources */,
 				627DC5B223E5F581006D8615 /* Assets.xcassets in Resources */,
 				62015CBB23EF084C00673EBB /* TopicCell.xib in Resources */,
 			);
@@ -329,13 +371,16 @@
 			files = (
 				62A697A323E89BD600CCEA3E /* LatestTopicsRequest.swift in Sources */,
 				627DC5BE23E5F7A0006D8615 /* Coordinator.swift in Sources */,
+				90D68F4B25B8A4A9005D6F1B /* UserDetailViewController.swift in Sources */,
 				627DC5C323E5FEE4006D8615 /* TopicsViewModel.swift in Sources */,
 				62015CC023EF0F8100673EBB /* TopicDetailViewModel.swift in Sources */,
+				90D68F4F25B8A4C7005D6F1B /* UserDetailDataManager.swift in Sources */,
 				62015CC823EF162D00673EBB /* SingleTopicResponse.swift in Sources */,
 				62015CC423EF14FC00673EBB /* TopicDetailDataManager.swift in Sources */,
 				62015CDB23EF301300673EBB /* CategoriesViewModel.swift in Sources */,
 				62015CBD23EF0C6700673EBB /* TopicsCoordinator.swift in Sources */,
 				62A697A623E89C2200CCEA3E /* LatestTopicsResponse.swift in Sources */,
+				90D68F4325B8A455005D6F1B /* UsersDataManager.swift in Sources */,
 				627DC5CF23E604D2006D8615 /* DiscourseClientRemoteDataManager.swift in Sources */,
 				627DC5C523E5FEFD006D8615 /* TopicsViewController.swift in Sources */,
 				627DC5D323E605E5006D8615 /* DiscourseClientRemoteDataManagerImpl.swift in Sources */,
@@ -352,10 +397,13 @@
 				627DC5C823E60384006D8615 /* TopicsDataManager.swift in Sources */,
 				627DC5C023E5F7B3006D8615 /* AppCoordinator.swift in Sources */,
 				62A697A823E89E6700CCEA3E /* DiscourseClientLocalDataManagerImpl.swift in Sources */,
+				90D68F4625B8A48F005D6F1B /* UserDetailViewModel.swift in Sources */,
+				90D68F3F25B8A431005D6F1B /* UsersViewController.swift in Sources */,
 				62015CD623EF21F600673EBB /* AddTopicDataManager.swift in Sources */,
 				627DC5D923E60727006D8615 /* APIRequest.swift in Sources */,
 				62015CD023EF1F6800673EBB /* AddTopicViewController.swift in Sources */,
 				627DC5A923E5F580006D8615 /* AppDelegate.swift in Sources */,
+				90D68F3B25B8A410005D6F1B /* UsersViewModel.swift in Sources */,
 				62015CB723EF04C200673EBB /* TopicCellViewModel.swift in Sources */,
 				627DC5D823E60727006D8615 /* SessionAPI.swift in Sources */,
 				627DC5D123E604E7006D8615 /* DiscourseClientLocalDataManager.swift in Sources */,
