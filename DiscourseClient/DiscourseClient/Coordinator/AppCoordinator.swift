@@ -60,7 +60,7 @@ class AppCoordinator: Coordinator {
         tabBarController.viewControllers = [topicsNavigationController, categoriesNavigationController, usersNavigationController]
         tabBarController.tabBar.items?.first?.image = UIImage(systemName: "list.dash")
         tabBarController.tabBar.items?[1].image = UIImage(systemName: "tag")
-        tabBarController.tabBar.items?.last?.image = UIImage(systemName: "users")
+        tabBarController.tabBar.items?.last?.image = UIImage(systemName: "person.3")
         tabBarController.tabBar.tintColor = .black
 
         window.rootViewController = tabBarController
