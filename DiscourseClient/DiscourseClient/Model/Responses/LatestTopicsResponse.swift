@@ -4,6 +4,14 @@ import Foundation
 // Puedes echar un vistazo en https://docs.discourse.org
 
 struct LatestTopicsResponse: Codable {
+    var topicList: TopicList
+
+    enum CodingKeys: String, CodingKey {
+        case topicList = "topic_list"
+    }
+}
+
+struct TopicList: Codable {
     var topics: [Topic] = []
 }
 

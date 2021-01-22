@@ -40,9 +40,8 @@ class TopicsViewModel {
 
         topicsDataManager.fetchAllTopics { [weak self] result in
             switch result {
-                case .success(let latestResponse):
-
-                    self?.topicViewModels = latestResponse?.topics.topics.map({ topic -> TopicCellViewModel in
+                case .success(let latestTopicsResponse):
+                    self?.topicViewModels = latestTopicsResponse?.topicList.topics.map({ topic -> TopicCellViewModel in
                         return TopicCellViewModel(topic: topic)
                     }) ?? [TopicCellViewModel]()
                     self?.viewDelegate?.topicsFetched()

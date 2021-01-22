@@ -15,5 +15,5 @@ enum TopicsDataManagerError: Error {
 
 /// Data Manager con las operaciones necesarias de este módulo
 protocol TopicsDataManager {
-    func fetchAllTopics(completion: @escaping (Result<LatestResponse?, Error>) -> ())
+    func fetchAllTopics(completion: @escaping (Result<LatestTopicsResponse?, Error>) -> ())
 }
