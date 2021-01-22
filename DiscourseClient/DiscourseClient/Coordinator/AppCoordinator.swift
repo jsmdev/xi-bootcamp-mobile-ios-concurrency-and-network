@@ -50,11 +50,18 @@ class AppCoordinator: Coordinator {
         addChildCoordinator(categoriesCoordinator)
         categoriesCoordinator.start()
 
-        tabBarController.tabBar.tintColor = .black
+        let usersNavigationController = UINavigationController()
+        let usersCoordinator = UsersCoordinator(presenter: usersNavigationController,
+                                                 usersDataManager: dataManager,
+                                                 userDetailDataManager: dataManager)
+        addChildCoordinator(usersCoordinator)
+        usersCoordinator.start()
 
-        tabBarController.viewControllers = [topicsNavigationController, categoriesNavigationController]
+        tabBarController.viewControllers = [topicsNavigationController, categoriesNavigationController, usersNavigationController]
         tabBarController.tabBar.items?.first?.image = UIImage(systemName: "list.dash")
         tabBarController.tabBar.items?[1].image = UIImage(systemName: "tag")
+        tabBarController.tabBar.items?.last?.image = UIImage(systemName: "users")
+        tabBarController.tabBar.tintColor = .black
 
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()

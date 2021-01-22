@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+/// Errores que pueden darse en el topics data manager
+enum UsersDataManagerError: Error {
+    case unknown
+}
+
+/// Data Manager con las operaciones necesarias de este módulo
+protocol UsersDataManager {
+    func fetchAllUsers(completion: @escaping (Result<LatestUsersResponse?, Error>) -> ())
+}
