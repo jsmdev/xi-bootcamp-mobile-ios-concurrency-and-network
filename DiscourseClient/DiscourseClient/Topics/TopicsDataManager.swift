@@ -13,7 +13,7 @@ enum TopicsDataManagerError: Error {
     case unknown
 }
 
-/// Data Manager con las opraciones necesarias de este módulo
+/// Data Manager con las operaciones necesarias de este módulo
 protocol TopicsDataManager {
-    func fetchAllTopics(completion: @escaping (Result<LatestTopicsResponse?, Error>) -> ())
+    func fetchAllTopics(completion: @escaping (Result<LatestResponse?, Error>) -> ())
 }

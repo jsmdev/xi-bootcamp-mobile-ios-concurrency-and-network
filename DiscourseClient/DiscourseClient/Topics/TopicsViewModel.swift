@@ -38,18 +38,18 @@ class TopicsViewModel {
          Avisar a la vista de que ya tenemos topics listos para pintar
          */
 
+        topicsDataManager.fetchAllTopics { [weak self] result in
+            switch result {
+                case .success(let latestResponse):
 
-//        topicsDataManager.fetchAllTopics { [weak self] result in
-//            switch result {
-//                case .success(let latestTopicsResponse):
-//                    self?.topicViewModels = latestTopicsResponse?.topics.map({ topic -> TopicCellViewModel in
-//                        return TopicCellViewModel(topic: topic)
-//                    })
-//                    self?.viewDelegate?.topicsFetched()
-//                case .failure:
-//                    self?.viewDelegate?.errorFetchingTopics()
-//            }
-//        }
+                    self?.topicViewModels = latestResponse?.topics.topics.map({ topic -> TopicCellViewModel in
+                        return TopicCellViewModel(topic: topic)
+                    }) ?? [TopicCellViewModel]()
+                    self?.viewDelegate?.topicsFetched()
+                case .failure:
+                    self?.viewDelegate?.errorFetchingTopics()
+            }
+        }
     }
 
     func numberOfSections() -> Int {
