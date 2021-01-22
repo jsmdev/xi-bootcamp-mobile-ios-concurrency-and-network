@@ -22,11 +22,14 @@ protocol TopicDetailViewDelegate: class {
 class TopicDetailViewModel {
     var labelTopicIDText: String?
     var labelTopicNameText: String?
+    var labelPostsNumberText: String?
+    var candDelete: Bool?
 
     weak var viewDelegate: TopicDetailViewDelegate?
     weak var coordinatorDelegate: TopicDetailCoordinatorDelegate?
     let topicDetailDataManager: TopicDetailDataManager
     let topicID: Int
+
 
     init(topicID: Int, topicDetailDataManager: TopicDetailDataManager) {
         self.topicID = topicID
@@ -34,7 +37,18 @@ class TopicDetailViewModel {
     }
 
     func viewDidLoad() {
-
+        topicDetailDataManager.fetchTopic(id: self.topicID) { [weak self] result in
+            switch result {
+                case .success(let topicResponse):
+                    self?.labelTopicIDText = "\(topicResponse?.id ?? 0)"
+                    self?.labelTopicNameText = topicResponse?.title
+                    self?.labelPostsNumberText = "\(topicResponse?.postsCount ?? 0)"
+                    self?.candDelete = topicResponse?.details.canDelete
+                    self?.viewDelegate?.topicDetailFetched()
+                case .failure:
+                    self?.viewDelegate?.errorFetchingTopicDetail()
+            }
+        }
     }
 
     func backButtonTapped() {

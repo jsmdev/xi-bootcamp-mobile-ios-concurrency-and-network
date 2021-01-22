@@ -23,7 +23,7 @@ class DiscourseClientDataManager {
 }
 
 extension DiscourseClientDataManager: TopicsDataManager {
-    func fetchAllTopics(completion: @escaping (Result<LatestResponse?, Error>) -> ()) {
+    func fetchAllTopics(completion: @escaping (Result<LatestTopicsResponse?, Error>) -> ()) {
         remoteDataManager.fetchAllTopics(completion: completion)
     }
 }
