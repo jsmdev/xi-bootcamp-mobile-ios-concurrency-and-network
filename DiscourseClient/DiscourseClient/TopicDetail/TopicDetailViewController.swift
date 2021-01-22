@@ -102,6 +102,7 @@ class TopicDetailViewController: UIViewController {
         let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: self, action: #selector(backButtonTapped))
         leftBarButtonItem.tintColor = .black
         navigationItem.leftBarButtonItem = leftBarButtonItem
+
     }
 
     override func viewDidLoad() {
@@ -110,6 +111,11 @@ class TopicDetailViewController: UIViewController {
     }
 
     @objc func backButtonTapped() {
+        viewModel.backButtonTapped()
+    }
+
+    @objc func deleteButtonTapped() {
+        print("deleteButtonTapped!!!")
         viewModel.backButtonTapped()
     }
 
@@ -122,10 +128,24 @@ class TopicDetailViewController: UIViewController {
         labelTopicID.text = viewModel.labelTopicIDText
         labelTopicTitle.text = viewModel.labelTopicNameText
         labelPostsNumberTitle.text = "\(viewModel.labelPostsNumberText ?? "0")"
+
+        if let canDeleteTopic = viewModel.candDelete, canDeleteTopic {
+            let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteButtonTapped))
+            rightBarButtonItem.tintColor = .red
+            navigationItem.rightBarButtonItem = rightBarButtonItem
+        }
     }
 }
 
 extension TopicDetailViewController: TopicDetailViewDelegate {
+    func topicDeleted() {
+        // TODO: Pepe
+    }
+
+    func errorDeletingTopic() {
+        // TODO: Pepe
+    }
+
     func topicDetailFetched() {
         updateUI()
     }
