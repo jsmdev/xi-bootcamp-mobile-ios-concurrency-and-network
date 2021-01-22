@@ -13,7 +13,7 @@ protocol DiscourseClientRemoteDataManager {
     func fetchAllTopics(completion: @escaping (Result<LatestTopicsResponse?, Error>) -> ())
     func fetchTopic(id: Int, completion: @escaping (Result<SingleTopicResponse?, Error>) -> ())
     func addTopic(title: String, raw: String, createdAt: String, completion: @escaping (Result<AddNewTopicResponse?, Error>) -> ())
-//    func deleteTopic(id: Int, completion: @escaping (Result<DeleteTopicResponse?, Error>) -> ())
+    func deleteTopic(id: Int, completion: @escaping (Result<VoidResponse?, Error>) -> ())
 
     func fetchAllUsers(completion: @escaping (Result<LatestUsersResponse?, Error>) -> ())
     func fetchUser(id: Int, completion: @escaping (Result<SingleUserResponse?, Error>) -> ())

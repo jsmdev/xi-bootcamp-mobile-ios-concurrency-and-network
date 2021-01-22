@@ -80,7 +80,8 @@ extension TopicsCoordinator: TopicsCoordinatorDelegate {
 
 extension TopicsCoordinator: TopicDetailCoordinatorDelegate {
     func topicDeletedSuccessfully() {
-        // TODO: Pepe
+        presenter.popViewController(animated: true)
+        topicsViewModel?.viewWasLoaded()
     }
 
     func topicDetailBackButtonTapped() {

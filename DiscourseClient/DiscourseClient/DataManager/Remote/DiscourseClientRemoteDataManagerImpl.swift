@@ -37,6 +37,13 @@ class DiscourseClientRemoteDataManagerImpl: DiscourseClientRemoteDataManager {
         }
     }
 
+    func deleteTopic(id: Int, completion: @escaping (Result<VoidResponse?, Error>) -> ()) {
+        let request = DeleteSingleTopicRequest(id: id)
+        session.send(request: request) { result in
+            completion(result)
+        }
+    }
+
     func fetchAllUsers(completion: @escaping (Result<LatestUsersResponse?, Error>) -> ()) {
         let request = LatestUsersRequest()
         session.send(request: request) { result in

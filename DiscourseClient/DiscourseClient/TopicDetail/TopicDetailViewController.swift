@@ -115,8 +115,7 @@ class TopicDetailViewController: UIViewController {
     }
 
     @objc func deleteButtonTapped() {
-        print("deleteButtonTapped!!!")
-        viewModel.backButtonTapped()
+        viewModel.deleteButtonTapped()
     }
 
     fileprivate func showErrorFetchingTopicDetailAlert() {
@@ -138,12 +137,9 @@ class TopicDetailViewController: UIViewController {
 }
 
 extension TopicDetailViewController: TopicDetailViewDelegate {
-    func topicDeleted() {
-        // TODO: Pepe
-    }
-
     func errorDeletingTopic() {
-        // TODO: Pepe
+        let alertMessage: String = NSLocalizedString("Error deleting the topic\nPlease try again later", comment: "")
+        showAlert(alertMessage)
     }
 
     func topicDetailFetched() {

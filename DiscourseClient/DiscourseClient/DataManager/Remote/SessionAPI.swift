@@ -56,8 +56,8 @@ final class SessionAPI {
                     return
                 }
             }
-            
-            if let data = data {
+
+            if let data = data, T.Response.self != VoidResponse.self {
                 do {
                     let model = try JSONDecoder().decode(T.Response.self, from: data)
                     DispatchQueue.main.async {

@@ -18,7 +18,6 @@ protocol TopicDetailCoordinatorDelegate: class {
 protocol TopicDetailViewDelegate: class {
     func topicDetailFetched()
     func errorFetchingTopicDetail()
-    func topicDeleted()
     func errorDeletingTopic()
 }
 
@@ -59,11 +58,12 @@ class TopicDetailViewModel {
     }
 
     func deleteButtonTapped() {
-        topicDetailDataManager.fetchTopic(id: self.topicID) { [weak self] result in
+        topicDetailDataManager.deleteTopic(id: self.topicID) { [weak self] result in
             switch result {
                 case .success:
                     self?.coordinatorDelegate?.topicDeletedSuccessfully()
-                case .failure:
+                case .failure(let error):
+                    print(error)
                     self?.viewDelegate?.errorDeletingTopic()
             }
         }
