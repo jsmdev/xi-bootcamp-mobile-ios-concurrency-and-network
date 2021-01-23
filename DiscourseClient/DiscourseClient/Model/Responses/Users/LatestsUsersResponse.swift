@@ -36,9 +36,17 @@ struct User: Codable {
     let username: String
     let name: String
     let avatarTemplate: String
+    let canEdit: Bool?
+    let canEditUsername: Bool?
+    let canEditEmail: Bool?
+    let canEditName: Bool?
 
     enum CodingKeys: String, CodingKey {
         case id, username, name
         case avatarTemplate = "avatar_template"
+        case canEdit = "can_edit"
+        case canEditUsername = "can_edit_username"
+        case canEditEmail = "can_edit_email"
+        case canEditName = "can_edit_name"
     }
 }

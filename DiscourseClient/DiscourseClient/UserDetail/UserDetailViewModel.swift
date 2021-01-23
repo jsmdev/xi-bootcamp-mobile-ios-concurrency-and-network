@@ -23,33 +23,34 @@ class UserDetailViewModel {
     var labelUserIDText: String?
     var labelUserNameText: String?
     var labelUserUsernameText: String?
-//    var candEdit: Bool?
+    var candEditName: Bool?
 
     weak var viewDelegate: UserDetailViewDelegate?
     weak var coordinatorDelegate: UserDetailCoordinatorDelegate?
     let userDetailDataManager: UserDetailDataManager
-    let userID: Int
+    let username: String
 
-    init(userID: Int, userDetailDataManager: UserDetailDataManager) {
-        self.userID = userID
+    init(username: String, userDetailDataManager: UserDetailDataManager) {
+        self.username = username
         self.userDetailDataManager = userDetailDataManager
     }
 
     func viewDidLoad() {
-        labelUserIDText = "\(self.userID)"
-        self.viewDelegate?.userDetailFetched()
-//        topicDetailDataManager.fetchTopic(id: self.topicID) { [weak self] result in
-//            switch result {
-//                case .success(let topicResponse):
-//                    self?.labelTopicIDText = "\(topicResponse?.id ?? 0)"
-//                    self?.labelTopicNameText = topicResponse?.title
-//                    self?.labelPostsNumberText = "\(topicResponse?.postsCount ?? 0)"
-//                    self?.candDelete = topicResponse?.details.canDelete
-//                    self?.viewDelegate?.topicDetailFetched()
-//                case .failure:
-//                    self?.viewDelegate?.errorFetchingTopicDetail()
-//            }
-//        }
+//        labelUserIDText = "\(self.userID)"
+//        self.viewDelegate?.userDetailFetched()
+
+        userDetailDataManager.fetchUser(username: self.username) { [weak self] result in
+            switch result {
+                case .success(let userResponse):
+                    self?.labelUserIDText = "\(userResponse?.user.id ?? 0)"
+                    self?.labelUserNameText = userResponse?.user.name
+                    self?.labelUserUsernameText = userResponse?.user.username
+                    self?.candEditName = userResponse?.user.canEditName
+                    self?.viewDelegate?.userDetailFetched()
+                case .failure:
+                    self?.viewDelegate?.errorFetchingUserDetail()
+            }
+        }
     }
 
     func backButtonTapped() {

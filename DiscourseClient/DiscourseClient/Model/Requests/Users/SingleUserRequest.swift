@@ -13,29 +13,29 @@ struct SingleUserRequest: APIRequest {
     
     typealias Response = SingleUserResponse
     
-    let id: Int
+    let username: String
     
-    init(id: Int) {
-        self.id = id
+    init(username: String) {
+        self.username = username
     }
     
     var method: Method {
-        fatalError("Need to implement this")
+        return .GET
     }
     
     var path: String {
-        fatalError("Need to implement this")
+        return "/users/\(username).json"
     }
     
     var parameters: [String : String] {
-        fatalError("Need to implement this")
+        return [:]
     }
     
     var body: [String : Any] {
-        fatalError("Need to implement this")
+        return [:]
     }
     
     var headers: [String : String] {
-        fatalError("Need to implement this")
+        return [:]
     }
 }

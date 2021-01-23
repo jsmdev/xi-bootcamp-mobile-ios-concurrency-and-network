@@ -16,13 +16,13 @@ class UserDetailViewController: UIViewController {
         return label
     }()
 
-    lazy var labelUserTitle: UILabel = {
+    lazy var labelUserName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
-    lazy var labelPostsNumberTitle: UILabel = {
+    lazy var labelUserUsername: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -42,27 +42,27 @@ class UserDetailViewController: UIViewController {
     }()
 
     lazy var userNameStackView: UIStackView = {
-        let labelUserTitleTitle = UILabel()
-        labelUserTitleTitle.text = NSLocalizedString("User name: ", comment: "")
-        labelUserTitleTitle.translatesAutoresizingMaskIntoConstraints = false
+        let labelUserNameTitle = UILabel()
+        labelUserNameTitle.text = NSLocalizedString("User name: ", comment: "")
+        labelUserNameTitle.translatesAutoresizingMaskIntoConstraints = false
 
-        let userNameStackView = UIStackView(arrangedSubviews: [labelUserTitleTitle, labelUserTitle])
+        let userNameStackView = UIStackView(arrangedSubviews: [labelUserNameTitle, labelUserName])
         userNameStackView.translatesAutoresizingMaskIntoConstraints = false
         userNameStackView.axis = .horizontal
 
         return userNameStackView
     }()
 
-    lazy var userPostsNumberStackView: UIStackView = {
-        let labelUserPostsNumberTitle = UILabel()
-        labelUserPostsNumberTitle.text = NSLocalizedString("Number of posts: ", comment: "")
-        labelUserPostsNumberTitle.translatesAutoresizingMaskIntoConstraints = false
+    lazy var userUsernameStackView: UIStackView = {
+        let labelUserUsernameTitle = UILabel()
+        labelUserUsernameTitle.text = NSLocalizedString("Number of posts: ", comment: "")
+        labelUserUsernameTitle.translatesAutoresizingMaskIntoConstraints = false
 
-        let userPostsNumberStackView = UIStackView(arrangedSubviews: [labelUserPostsNumberTitle, labelPostsNumberTitle])
-        userPostsNumberStackView.translatesAutoresizingMaskIntoConstraints = false
-        userPostsNumberStackView.axis = .horizontal
+        let userUsernameStackView = UIStackView(arrangedSubviews: [labelUserUsernameTitle, labelUserUsername])
+        userUsernameStackView.translatesAutoresizingMaskIntoConstraints = false
+        userUsernameStackView.axis = .horizontal
 
-        return userPostsNumberStackView
+        return userUsernameStackView
     }()
 
     let viewModel: UserDetailViewModel
@@ -92,10 +92,10 @@ class UserDetailViewController: UIViewController {
             userNameStackView.topAnchor.constraint(equalTo: userIDStackView.bottomAnchor, constant: 16)
         ])
 
-        view.addSubview(userPostsNumberStackView)
+        view.addSubview(userUsernameStackView)
         NSLayoutConstraint.activate([
-            userPostsNumberStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            userPostsNumberStackView.topAnchor.constraint(equalTo: userNameStackView.bottomAnchor, constant: 16)
+            userUsernameStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            userUsernameStackView.topAnchor.constraint(equalTo: userNameStackView.bottomAnchor, constant: 16)
         ])
 
         let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: self, action: #selector(backButtonTapped))
@@ -124,8 +124,8 @@ class UserDetailViewController: UIViewController {
 
     fileprivate func updateUI() {
         labelUserID.text = viewModel.labelUserIDText
-//        labelUserTitle.text = viewModel.labelUserNameText
-//        labelPostsNumberTitle.text = "\(viewModel.labelPostsNumberText ?? "0")"
+        labelUserName.text = viewModel.labelUserNameText
+        labelUserUsername.text = viewModel.labelUserUsernameText
 
 //        if let canDeleteUser = viewModel.candDelete, canDeleteUser {
 //            let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteButtonTapped))

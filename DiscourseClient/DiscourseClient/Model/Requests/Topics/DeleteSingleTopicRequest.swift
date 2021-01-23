@@ -19,7 +19,7 @@ struct DeleteSingleTopicRequest: APIRequest {
     }
 
     var method: Method {
-        .DELETE
+        return .DELETE
     }
 
     var path: String {

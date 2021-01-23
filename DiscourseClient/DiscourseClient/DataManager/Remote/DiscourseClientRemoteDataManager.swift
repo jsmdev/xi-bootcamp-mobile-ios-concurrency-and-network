@@ -19,5 +19,5 @@ protocol DiscourseClientRemoteDataManager {
     func fetchAllCategories(completion: @escaping (Result<GetCategoriesResponse?, Error>) -> ())
     // MARK: - Users
     func fetchAllUsers(completion: @escaping (Result<LatestUsersResponse?, Error>) -> ())
-    func fetchUser(id: Int, completion: @escaping (Result<SingleUserResponse?, Error>) -> ())
+    func fetchUser(username: String, completion: @escaping (Result<SingleUserResponse?, Error>) -> ())
 }

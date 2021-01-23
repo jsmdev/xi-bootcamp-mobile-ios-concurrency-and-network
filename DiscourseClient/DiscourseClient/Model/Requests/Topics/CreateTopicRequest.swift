@@ -26,7 +26,7 @@ struct CreateTopicRequest: APIRequest {
     }
     
     var method: Method {
-        .POST
+        return .POST
     }
     
     var path: String {

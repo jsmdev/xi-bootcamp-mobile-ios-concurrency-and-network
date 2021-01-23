@@ -20,7 +20,7 @@ struct SingleTopicRequest: APIRequest {
     }
     
     var method: Method {
-        .GET
+        return .GET
     }
     
     var path: String {
