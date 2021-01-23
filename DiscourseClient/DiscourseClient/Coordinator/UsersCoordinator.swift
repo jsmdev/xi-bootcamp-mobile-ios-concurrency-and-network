@@ -44,6 +44,13 @@ extension UsersCoordinator: UsersCoordinatorDelegate {
          Asignar el VC al viewDelegate del VM. De esta forma, el VC se enterará de lo necesario para pintar la UI
          Finalmente, lanzar el UserDetailViewController sobre el presenter.
          */
+        let userDetailViewModel = UserDetailViewModel(userID: user.id,
+                                                      userDetailDataManager: userDetailDataManager)
+        let userDetailViewController = UserDetailViewController(viewModel: userDetailViewModel)
+        userDetailViewController.title = NSLocalizedString("User Detail", comment: "")
+        userDetailViewModel.viewDelegate = userDetailViewController
+        userDetailViewModel.coordinatorDelegate = self
+        presenter.pushViewController(userDetailViewController, animated: true)
     }
 }
 
