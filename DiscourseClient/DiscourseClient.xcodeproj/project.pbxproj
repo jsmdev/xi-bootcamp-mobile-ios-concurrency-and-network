@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,6 +49,7 @@
 		909EFBAC25BAF0F300901A10 /* SingleUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EFBAB25BAF0F300901A10 /* SingleUserResponse.swift */; };
 		909EFBB125BAF6A000901A10 /* LatestUsersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EFBAF25BAF6A000901A10 /* LatestUsersRequest.swift */; };
 		909EFBB225BAF6A000901A10 /* SingleUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909EFBB025BAF6A000901A10 /* SingleUserRequest.swift */; };
+		90A1758E25BBE0B000AF3694 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1758D25BBE0B000AF3694 /* Date+Extensions.swift */; };
 		90D68F3B25B8A410005D6F1B /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F3A25B8A410005D6F1B /* UsersViewModel.swift */; };
 		90D68F3F25B8A431005D6F1B /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F3D25B8A431005D6F1B /* UsersViewController.swift */; };
 		90D68F4025B8A431005D6F1B /* UsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D68F3E25B8A431005D6F1B /* UsersViewController.xib */; };
@@ -109,6 +110,7 @@
 		909EFBAB25BAF0F300901A10 /* SingleUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleUserResponse.swift; sourceTree = "<group>"; };
 		909EFBAF25BAF6A000901A10 /* LatestUsersRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestUsersRequest.swift; sourceTree = "<group>"; };
 		909EFBB025BAF6A000901A10 /* SingleUserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleUserRequest.swift; sourceTree = "<group>"; };
+		90A1758D25BBE0B000AF3694 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		90D68F3A25B8A410005D6F1B /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		90D68F3D25B8A431005D6F1B /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		90D68F3E25B8A431005D6F1B /* UsersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersViewController.xib; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				62015CCA23EF19F500673EBB /* UIViewController+Extensions.swift */,
+				90A1758D25BBE0B000AF3694 /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -341,7 +344,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 627DC5B923E5F581006D8615 /* Build configuration list for PBXNativeTarget "DiscourseClient" */;
 			buildPhases = (
-				3A00545B6F86DE625E0A7D59 /* [CP] Prepare Artifacts */,
 				627DC5A123E5F580006D8615 /* Sources */,
 				627DC5A223E5F580006D8615 /* Frameworks */,
 				627DC5A323E5F580006D8615 /* Resources */,
@@ -404,26 +406,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		3A00545B6F86DE625E0A7D59 /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DiscourseClient/Pods-DiscourseClient-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DiscourseClient/Pods-DiscourseClient-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DiscourseClient/Pods-DiscourseClient-artifacts.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		627DC5A123E5F580006D8615 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -472,6 +454,7 @@
 				62015CD023EF1F6800673EBB /* AddTopicViewController.swift in Sources */,
 				627DC5A923E5F580006D8615 /* AppDelegate.swift in Sources */,
 				90D68F3B25B8A410005D6F1B /* UsersViewModel.swift in Sources */,
+				90A1758E25BBE0B000AF3694 /* Date+Extensions.swift in Sources */,
 				62015CB723EF04C200673EBB /* TopicCellViewModel.swift in Sources */,
 				627DC5D823E60727006D8615 /* SessionAPI.swift in Sources */,
 				627DC5D123E604E7006D8615 /* DiscourseClientLocalDataManager.swift in Sources */,

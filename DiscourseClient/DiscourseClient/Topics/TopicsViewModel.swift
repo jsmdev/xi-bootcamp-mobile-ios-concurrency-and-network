@@ -37,7 +37,6 @@ class TopicsViewModel {
          Asignar el resultado a la lista de viewModels (que representan celdas de la interfaz
          Avisar a la vista de que ya tenemos topics listos para pintar
          */
-
         topicsDataManager.fetchAllTopics { [weak self] result in
             switch result {
                 case .success(let latestTopicsResponse):
@@ -75,5 +74,6 @@ class TopicsViewModel {
 
     func newTopicWasCreated() {
         // TODO: Seguramente debamos recuperar de nuevo los topics del datamanager, y pintarlos de nuevo
+        viewWasLoaded()
     }
 }

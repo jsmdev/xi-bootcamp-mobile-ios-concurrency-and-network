@@ -38,5 +38,16 @@ class AddTopicViewModel {
          Si el resultado es success, avisar al coordinator
          Si la llamada falla, avisar al viewDelegate
          */
+        dataManager.addTopic(title: title,
+                             raw: "Raw string value",
+                             createdAt: Date().currentWithFormat()) { [weak self] result in
+            switch result {
+                case .success:
+                    self?.coordinatorDelegate?.topicSuccessfullyAdded()
+                case .failure(let error):
+                    print(error)
+                    self?.viewDelegate?.errorAddingTopic()
+            }
+        }
     }
 }

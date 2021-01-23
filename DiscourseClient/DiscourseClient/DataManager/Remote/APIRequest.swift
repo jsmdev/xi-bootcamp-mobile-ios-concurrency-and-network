@@ -67,10 +67,34 @@ extension APIRequest {
         
         //Aquí añadimos el body si el objeto que lo implementa añade body
         if !body.isEmpty {
-            let jsonData = try? JSONSerialization.data(withJSONObject: body)
-            request.httpBody = jsonData
+//            let jsonData = try? JSONSerialization.data(withJSONObject: body)
+//            request.httpBody = jsonData
+
+            /// form-data
+//            var bodyComponents = [URLQueryItem]()
+//            for keyValue in body {
+//                bodyComponents.append(URLQueryItem(name: keyValue.key, value: "\(keyValue.value)"))
+//            }
+//            var requestBodyComponents = URLComponents()
+//            requestBodyComponents.queryItems = bodyComponents
+//            request.httpBody = requestBodyComponents.query?.data(using: .utf8)
+
+            /// form-urlencoded
+//            var stringComponents = ""
+//            for (index, element) in body.enumerated() {
+//                stringComponents.append("\(element.key)=\(element.value)")
+//                if index < body.count - 1 {
+//                    stringComponents.append("&")
+//                }
+//            }
+//            let escapedString = stringComponents.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+//            request.httpBody = escapedString?.data(using: .utf8)
         }
-        
+
+        for keyValue in headers {
+            request.addValue(keyValue.value, forHTTPHeaderField: keyValue.key)
+        }
+
         // Aquí vamos definiendo las cabeceras de nuestra petición
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         // API-KEY: 699667f923e65fac39b632b0d9b2db0d9ee40f9da15480ad5a4bcb3c1b095b7a. Necesario para que el servidor nos reconozca
@@ -78,7 +102,7 @@ extension APIRequest {
         // API-Username, necesario para que el servidor nos reconozca
         // Para la practica, cambiar el usuario nach por el que usasteis para registraros
         request.addValue("jsmdev", forHTTPHeaderField: "Api-Username")
-        
+
         return request
     }
 }
