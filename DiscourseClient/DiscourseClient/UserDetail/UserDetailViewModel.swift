@@ -17,6 +17,8 @@ protocol UserDetailCoordinatorDelegate: class {
 protocol UserDetailViewDelegate: class {
     func userDetailFetched()
     func errorFetchingUserDetail()
+    func userNameUpdated()
+    func errorUpdatingUserName()
 }
 
 class UserDetailViewModel {
@@ -36,9 +38,6 @@ class UserDetailViewModel {
     }
 
     func viewDidLoad() {
-//        labelUserIDText = "\(self.userID)"
-//        self.viewDelegate?.userDetailFetched()
-
         userDetailDataManager.fetchUser(username: self.username) { [weak self] result in
             switch result {
                 case .success(let userResponse):
@@ -57,15 +56,15 @@ class UserDetailViewModel {
         coordinatorDelegate?.userDetailBackButtonTapped()
     }
 
-    func editButtonTapped() {
-//        topicDetailDataManager.deleteTopic(id: self.topicID) { [weak self] result in
-//            switch result {
-//                case .success:
-//                    self?.coordinatorDelegate?.topicDeletedSuccessfully()
-//                case .failure(let error):
-//                    print(error)
-//                    self?.viewDelegate?.errorDeletingTopic()
-//            }
-//        }
+    func updateNameTapped(name: String) {
+        userDetailDataManager.updateUser(username: self.username, name: name) { [weak self] result in
+            switch result {
+                case .success:
+                    self?.viewDelegate?.userNameUpdated()
+                case .failure(let error):
+                    print(error)
+                    self?.viewDelegate?.errorUpdatingUserName()
+            }
+        }
     }
 }

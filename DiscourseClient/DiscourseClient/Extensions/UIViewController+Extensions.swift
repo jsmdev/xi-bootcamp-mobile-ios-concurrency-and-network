@@ -15,7 +15,7 @@ extension UIViewController {
     ///   - alertTitle: Título del alert
     ///   - alertActionTitle: Título de la acción
     func showAlert(_ alertMessage: String,
-                               _ alertTitle: String = NSLocalizedString("Error", comment: ""),
+                               alertTitle: String = NSLocalizedString("Error", comment: ""),
                                _ alertActionTitle: String = NSLocalizedString("OK", comment: "")) {
 
         let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)

@@ -22,6 +22,15 @@ class UserDetailViewController: UIViewController {
         return label
     }()
 
+    lazy var nameTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .line
+        textField.clearButtonMode = .always
+        textField.placeholder = NSLocalizedString("Edit name", comment: "")
+        return textField
+    }()
+
     lazy var labelUserUsername: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -43,10 +52,10 @@ class UserDetailViewController: UIViewController {
 
     lazy var userNameStackView: UIStackView = {
         let labelUserNameTitle = UILabel()
-        labelUserNameTitle.text = NSLocalizedString("User name: ", comment: "")
+        labelUserNameTitle.text = NSLocalizedString("Name: ", comment: "")
         labelUserNameTitle.translatesAutoresizingMaskIntoConstraints = false
 
-        let userNameStackView = UIStackView(arrangedSubviews: [labelUserNameTitle, labelUserName])
+        let userNameStackView = UIStackView(arrangedSubviews: [labelUserNameTitle, labelUserName, nameTextField])
         userNameStackView.translatesAutoresizingMaskIntoConstraints = false
         userNameStackView.axis = .horizontal
 
@@ -55,7 +64,7 @@ class UserDetailViewController: UIViewController {
 
     lazy var userUsernameStackView: UIStackView = {
         let labelUserUsernameTitle = UILabel()
-        labelUserUsernameTitle.text = NSLocalizedString("Number of posts: ", comment: "")
+        labelUserUsernameTitle.text = NSLocalizedString("User name: ", comment: "")
         labelUserUsernameTitle.translatesAutoresizingMaskIntoConstraints = false
 
         let userUsernameStackView = UIStackView(arrangedSubviews: [labelUserUsernameTitle, labelUserUsername])
@@ -107,35 +116,73 @@ class UserDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.viewDidLoad()
+        nameTextField.isHidden = true
     }
 
     @objc func backButtonTapped() {
         viewModel.backButtonTapped()
     }
 
-//    @objc func deleteButtonTapped() {
-//        viewModel.deleteButtonTapped()
-//    }
+    @objc func updateNameTapped() {
+        if let newName = nameTextField.text, newName.count > 0 {
+            viewModel.updateNameTapped(name: newName)
+        } else {
+            let alertMessage: String = NSLocalizedString("Name is empty\nPlease try again later", comment: "")
+            showAlert(alertMessage)
+        }
+    }
 
     fileprivate func showErrorFetchingUserDetailAlert() {
         let alertMessage: String = NSLocalizedString("Error fetching user detail\nPlease try again later", comment: "")
         showAlert(alertMessage)
     }
 
+    fileprivate func showErrorUpdatingUserAlert() {
+        let alertMessage: String = NSLocalizedString("Error updating user\nPlease try again later", comment: "")
+        showAlert(alertMessage)
+    }
+
+    fileprivate func showUserUpdatedSuccessfullyAlert() {
+        let alertMessage: String = NSLocalizedString("User data updated successfully !!!", comment: "")
+        showAlert(alertMessage, alertTitle: NSLocalizedString("Success", comment: ""))
+    }
+
     fileprivate func updateUI() {
         labelUserID.text = viewModel.labelUserIDText
         labelUserName.text = viewModel.labelUserNameText
+        nameTextField.text = viewModel.labelUserNameText
         labelUserUsername.text = viewModel.labelUserUsernameText
 
-//        if let canDeleteUser = viewModel.candDelete, canDeleteUser {
-//            let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteButtonTapped))
-//            rightBarButtonItem.tintColor = .red
-//            navigationItem.rightBarButtonItem = rightBarButtonItem
-//        }
+        if let canEditName = viewModel.candEditName, canEditName {
+            labelUserName.isHidden = canEditName
+            nameTextField.isHidden = !canEditName
+
+            let submitButton = UIButton(type: .system)
+            submitButton.translatesAutoresizingMaskIntoConstraints = false
+            submitButton.setTitle(NSLocalizedString("Update name", comment: ""), for: .normal)
+            submitButton.backgroundColor = .cyan
+            submitButton.setTitleColor(.white, for: .normal)
+            submitButton.addTarget(self, action: #selector(updateNameTapped), for: .touchUpInside)
+
+            view.addSubview(submitButton)
+            NSLayoutConstraint.activate([
+                submitButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+                submitButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+                submitButton.topAnchor.constraint(equalTo: userUsernameStackView.bottomAnchor, constant: 20)
+            ])
+        }
     }
 }
 
 extension UserDetailViewController: UserDetailViewDelegate {
+    func userNameUpdated() {
+        showUserUpdatedSuccessfullyAlert()
+    }
+
+    func errorUpdatingUserName() {
+        showErrorUpdatingUserAlert()
+    }
+
     func userDetailFetched() {
         updateUI()
     }

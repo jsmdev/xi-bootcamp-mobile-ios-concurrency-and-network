@@ -41,10 +41,18 @@ class UsersViewController: UIViewController {
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+
+        let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .plain, target: self, action: #selector(refreshButtonTapped))
+        rightBarButtonItem.tintColor = .black
+        navigationItem.rightBarButtonItem = rightBarButtonItem
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.viewWasLoaded()
+    }
+
+    @objc func refreshButtonTapped() {
         viewModel.viewWasLoaded()
     }
 
