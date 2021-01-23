@@ -12,17 +12,28 @@ import Foundation
 struct LatestUsersRequest: APIRequest {
     
     typealias Response = LatestUsersResponse
-    
+
+    let period = "all"
+    let order = "topic_count"
+
+//    let period: String
+//    let order: String
+//
+//    init(period: String, order: String) {
+//        self.period = period
+//        self.order = order
+//    }
+
     var method: Method {
         return .GET
     }
     
     var path: String {
-        return "/latest.json"
+        return "/directory_items.json"
     }
     
     var parameters: [String : String] {
-        return [:]
+        return ["period": period, "order": order]
     }
     
     var body: [String : Any] {

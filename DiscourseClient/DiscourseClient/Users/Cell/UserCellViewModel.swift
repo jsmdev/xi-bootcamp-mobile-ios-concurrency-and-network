@@ -16,5 +16,6 @@ class UserCellViewModel {
     init(user: User) {
         self.user = user
         // TODO: Asignar textLabelText, el nombre del user
+        textLabelText = "\(user.name) [\(user.username)]"
     }
 }

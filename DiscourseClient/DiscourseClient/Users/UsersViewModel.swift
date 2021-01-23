@@ -36,19 +36,17 @@ class UsersViewModel {
          Asignar el resultado a la lista de viewModels (que representan celdas de la interfaz
          Avisar a la vista de que ya tenemos Users listos para pintar
          */
-
-
-//        UsersDataManager.fetchAllUsers { [weak self] result in
-//            switch result {
-//                case .success(let latestUsersResponse):
-//                    self?.topicViewModels = latestUsersResponse?.Users.map({ topic -> TopicCellViewModel in
-//                        return TopicCellViewModel(topic: topic)
-//                    })
-//                    self?.viewDelegate?.UsersFetched()
-//                case .failure:
-//                    self?.viewDelegate?.errorFetchingUsers()
-//            }
-//        }
+        usersDataManager.fetchAllUsers { [weak self] result in
+            switch result {
+                case .success(let usersResponse):
+                    self?.userViewModels = usersResponse?.directoryItems.map({ directoryItem -> UserCellViewModel in
+                        return UserCellViewModel(user: directoryItem.user)
+                    }) ?? [UserCellViewModel]()
+                    self?.viewDelegate?.usersFetched()
+                case .failure:
+                    self?.viewDelegate?.errorFetchingUsers()
+            }
+        }
     }
 
     func numberOfSections() -> Int {

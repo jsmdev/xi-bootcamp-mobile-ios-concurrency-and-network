@@ -10,7 +10,6 @@ import UIKit
 
 /// ViewController que representa un listado de users
 class UsersViewController: UIViewController {
-
     lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +34,6 @@ class UsersViewController: UIViewController {
 
     override func loadView() {
         view = UIView()
-
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
