@@ -11,11 +11,20 @@ import Foundation
 /// ViewModel que representa un user en la lista
 class UserCellViewModel {
     let user: User
-    var textLabelText: String?
+    var nameLabelText: String?
+    var usernameLabelText: String?
+    var imageStringURL: String?
 
     init(user: User) {
         self.user = user
-        // TODO: Asignar textLabelText, el nombre del user
-        textLabelText = "\(user.name) [\(user.username)]"
+        nameLabelText = user.name
+        usernameLabelText = user.username
+        imageStringURL = formatAvatarURL()
+    }
+
+    private func formatAvatarURL() -> String {
+        let apiURL = "https://mdiscourse.keepcoding.io"
+        let formatedURL = user.avatarTemplate.replacingOccurrences(of: "{size}", with: "80")
+        return apiURL + formatedURL
     }
 }

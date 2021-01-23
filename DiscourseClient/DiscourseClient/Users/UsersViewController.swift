@@ -55,6 +55,10 @@ class UsersViewController: UIViewController {
 }
 
 extension UsersViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(viewModel.heightForRow())
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }

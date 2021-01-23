@@ -49,6 +49,10 @@ class UsersViewModel {
         }
     }
 
+    func heightForRow() -> Int {
+        return 100
+    }
+
     func numberOfSections() -> Int {
         return 1
     }
