@@ -67,8 +67,8 @@ extension APIRequest {
         
         //Aquí añadimos el body si el objeto que lo implementa añade body
         if !body.isEmpty {
-//            let jsonData = try? JSONSerialization.data(withJSONObject: body)
-//            request.httpBody = jsonData
+            let jsonData = try? JSONSerialization.data(withJSONObject: body)
+            request.httpBody = jsonData
 
             /// form-data
 //            var bodyComponents = [URLQueryItem]()

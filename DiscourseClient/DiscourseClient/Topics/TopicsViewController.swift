@@ -10,7 +10,6 @@ import UIKit
 
 /// ViewController que representa un listado de topics
 class TopicsViewController: UIViewController {
-
     lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +34,6 @@ class TopicsViewController: UIViewController {
 
     override func loadView() {
         view = UIView()
-
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -43,7 +41,6 @@ class TopicsViewController: UIViewController {
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-
 
         let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(plusButtonTapped))
         rightBarButtonItem.tintColor = .black

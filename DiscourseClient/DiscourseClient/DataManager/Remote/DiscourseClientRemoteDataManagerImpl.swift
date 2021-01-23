@@ -16,6 +16,7 @@ class DiscourseClientRemoteDataManagerImpl: DiscourseClientRemoteDataManager {
         self.session = session
     }
 
+    // MARK: - Topics
     func fetchAllTopics(completion: @escaping (Result<LatestTopicsResponse?, Error>) -> ()) {
         let request = LatestTopicsRequest()
         session.send(request: request) { result in
@@ -44,6 +45,15 @@ class DiscourseClientRemoteDataManagerImpl: DiscourseClientRemoteDataManager {
         }
     }
 
+    // MARK: - Categories
+    func fetchAllCategories(completion: @escaping (Result<GetCategoriesResponse?, Error>) -> ()) {
+        let request = GetCategoriesRequest()
+        session.send(request: request) { result in
+            completion(result)
+        }
+    }
+
+    // MARK: - Users
     func fetchAllUsers(completion: @escaping (Result<LatestUsersResponse?, Error>) -> ()) {
         let request = LatestUsersRequest()
         session.send(request: request) { result in

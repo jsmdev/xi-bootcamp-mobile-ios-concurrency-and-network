@@ -34,7 +34,7 @@ class TopicsViewModel {
     func viewWasLoaded() {
         /** TODO:
          Recuperar el listado de latest topics del dataManager
-         Asignar el resultado a la lista de viewModels (que representan celdas de la interfaz
+         Asignar el resultado a la lista de viewModels (que representan celdas de la interfaz)
          Avisar a la vista de que ya tenemos topics listos para pintar
          */
         topicsDataManager.fetchAllTopics { [weak self] result in
