@@ -69,30 +69,6 @@ extension APIRequest {
         if !body.isEmpty {
             let jsonData = try? JSONSerialization.data(withJSONObject: body)
             request.httpBody = jsonData
-
-            /// form-data
-//            var bodyComponents = [URLQueryItem]()
-//            for keyValue in body {
-//                bodyComponents.append(URLQueryItem(name: keyValue.key, value: "\(keyValue.value)"))
-//            }
-//            var requestBodyComponents = URLComponents()
-//            requestBodyComponents.queryItems = bodyComponents
-//            request.httpBody = requestBodyComponents.query?.data(using: .utf8)
-
-            /// form-urlencoded
-//            var stringComponents = ""
-//            for (index, element) in body.enumerated() {
-//                stringComponents.append("\(element.key)=\(element.value)")
-//                if index < body.count - 1 {
-//                    stringComponents.append("&")
-//                }
-//            }
-//            let escapedString = stringComponents.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-//            request.httpBody = escapedString?.data(using: .utf8)
-        }
-
-        for keyValue in headers {
-            request.addValue(keyValue.value, forHTTPHeaderField: keyValue.key)
         }
 
         // Aquí vamos definiendo las cabeceras de nuestra petición

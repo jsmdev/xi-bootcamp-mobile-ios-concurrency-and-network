@@ -39,8 +39,7 @@ class AddTopicViewModel {
          Si la llamada falla, avisar al viewDelegate
          */
         dataManager.addTopic(title: title,
-                             raw: "Raw string value",
-                             createdAt: Date().currentWithFormat()) { [weak self] result in
+                             raw: "Este es mi raw para concurrencia y red XXI por jsmdev") { [weak self] result in
             switch result {
                 case .success:
                     self?.coordinatorDelegate?.topicSuccessfullyAdded()

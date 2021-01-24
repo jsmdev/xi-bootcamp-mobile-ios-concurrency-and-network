@@ -15,14 +15,11 @@ struct CreateTopicRequest: APIRequest {
     
     let title: String
     let raw: String
-    let createdAt: String
     
     init(title: String,
-         raw: String,
-         createdAt: String) {
+         raw: String) {
         self.title = title
         self.raw = raw
-        self.createdAt = createdAt
     }
     
     var method: Method {
@@ -40,12 +37,11 @@ struct CreateTopicRequest: APIRequest {
     var body: [String : Any] {
         return [
             "title": title,
-            "raw": raw,
-            "created_at": createdAt
+            "raw": raw
         ]
     }
     
     var headers: [String : String] {
-        return ["Content-Type": "application/x-www-form-urlencoded"]
+        return [:]
     }
 }
