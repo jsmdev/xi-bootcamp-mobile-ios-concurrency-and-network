@@ -10,7 +10,6 @@ import Foundation
 
 /// Implementación de la request que obtiene las categories
 struct GetCategoriesRequest: APIRequest {
-
     typealias Response = GetCategoriesResponse
 
     var method: Method {

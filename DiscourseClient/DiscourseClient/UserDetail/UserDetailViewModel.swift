@@ -60,10 +60,14 @@ class UserDetailViewModel {
         userDetailDataManager.updateUser(username: self.username, name: name) { [weak self] result in
             switch result {
                 case .success:
-                    self?.viewDelegate?.userNameUpdated()
+                    DispatchQueue.main.async {
+                        self?.viewDelegate?.userNameUpdated()
+                    }
                 case .failure(let error):
-                    print(error)
-                    self?.viewDelegate?.errorUpdatingUserName()
+                    print("Error when updating name of user: \(error)")
+                    DispatchQueue.main.async {
+                        self?.viewDelegate?.errorUpdatingUserName()
+                    }
             }
         }
     }

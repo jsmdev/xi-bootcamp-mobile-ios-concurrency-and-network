@@ -33,7 +33,7 @@ class AddTopicViewModel {
     }
 
     func submitButtonTapped(title: String) {
-        /** TODO:
+        /**
          Realizar la llamada addTopic sobre el dataManager.
          Si el resultado es success, avisar al coordinator
          Si la llamada falla, avisar al viewDelegate
@@ -42,10 +42,14 @@ class AddTopicViewModel {
                              raw: "Este es mi raw para concurrencia y red XXI por jsmdev") { [weak self] result in
             switch result {
                 case .success:
-                    self?.coordinatorDelegate?.topicSuccessfullyAdded()
+                    DispatchQueue.main.async {
+                        self?.coordinatorDelegate?.topicSuccessfullyAdded()
+                    }
                 case .failure(let error):
-                    print(error)
-                    self?.viewDelegate?.errorAddingTopic()
+                    print("Error when creating topic: \(error)")
+                    DispatchQueue.main.async {
+                        self?.viewDelegate?.errorAddingTopic()
+                    }
             }
         }
     }

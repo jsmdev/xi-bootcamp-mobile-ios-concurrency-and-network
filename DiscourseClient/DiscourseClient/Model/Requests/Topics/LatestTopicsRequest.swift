@@ -10,7 +10,6 @@ import Foundation
 
 /// Implementación de la request que obtiene los latest topics
 struct LatestTopicsRequest: APIRequest {
-    
     typealias Response = LatestTopicsResponse
     
     var method: Method {

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 /// DataManager de la app. Usa un localDataManager y un remoteDataManager que colaboran entre ellos
 /// En las extensiones de abajo, encontramos la implementación de aquellos métodos necesarios en cada módulo de la app
 /// Este DataManager sólo utiliza llamadas remotas, pero podría extenderse para serialziar las respuestas, y poder implementar un offline first en el futuro

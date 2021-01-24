@@ -58,11 +58,9 @@
 		90A175C425BCC9C500AF3694 /* UpdateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A175C325BCC9C500AF3694 /* UpdateUserRequest.swift */; };
 		90D68F3B25B8A410005D6F1B /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F3A25B8A410005D6F1B /* UsersViewModel.swift */; };
 		90D68F3F25B8A431005D6F1B /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F3D25B8A431005D6F1B /* UsersViewController.swift */; };
-		90D68F4025B8A431005D6F1B /* UsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D68F3E25B8A431005D6F1B /* UsersViewController.xib */; };
 		90D68F4325B8A455005D6F1B /* UsersDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F4225B8A455005D6F1B /* UsersDataManager.swift */; };
 		90D68F4625B8A48F005D6F1B /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F4525B8A48F005D6F1B /* UserDetailViewModel.swift */; };
 		90D68F4B25B8A4A9005D6F1B /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F4925B8A4A9005D6F1B /* UserDetailViewController.swift */; };
-		90D68F4C25B8A4A9005D6F1B /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90D68F4A25B8A4A9005D6F1B /* UserDetailViewController.xib */; };
 		90D68F4F25B8A4C7005D6F1B /* UserDetailDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F4E25B8A4C7005D6F1B /* UserDetailDataManager.swift */; };
 		90D68F5225B8A760005D6F1B /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F5125B8A760005D6F1B /* UserCellViewModel.swift */; };
 		90D68F5725B8A77F005D6F1B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D68F5525B8A77F005D6F1B /* UserCell.swift */; };
@@ -125,11 +123,9 @@
 		90A175C325BCC9C500AF3694 /* UpdateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserRequest.swift; sourceTree = "<group>"; };
 		90D68F3A25B8A410005D6F1B /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		90D68F3D25B8A431005D6F1B /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
-		90D68F3E25B8A431005D6F1B /* UsersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersViewController.xib; sourceTree = "<group>"; };
 		90D68F4225B8A455005D6F1B /* UsersDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataManager.swift; sourceTree = "<group>"; };
 		90D68F4525B8A48F005D6F1B /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
 		90D68F4925B8A4A9005D6F1B /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
-		90D68F4A25B8A4A9005D6F1B /* UserDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
 		90D68F4E25B8A4C7005D6F1B /* UserDetailDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailDataManager.swift; sourceTree = "<group>"; };
 		90D68F5125B8A760005D6F1B /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		90D68F5525B8A77F005D6F1B /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -401,7 +397,6 @@
 			children = (
 				90D68F4225B8A455005D6F1B /* UsersDataManager.swift */,
 				90D68F3D25B8A431005D6F1B /* UsersViewController.swift */,
-				90D68F3E25B8A431005D6F1B /* UsersViewController.xib */,
 				90D68F3A25B8A410005D6F1B /* UsersViewModel.swift */,
 				90A175BA25BC35DE00AF3694 /* Cell */,
 			);
@@ -413,7 +408,6 @@
 			children = (
 				90D68F4E25B8A4C7005D6F1B /* UserDetailDataManager.swift */,
 				90D68F4925B8A4A9005D6F1B /* UserDetailViewController.swift */,
-				90D68F4A25B8A4A9005D6F1B /* UserDetailViewController.xib */,
 				90D68F4525B8A48F005D6F1B /* UserDetailViewModel.swift */,
 			);
 			path = UserDetail;
@@ -479,9 +473,7 @@
 			files = (
 				627DC5B523E5F581006D8615 /* LaunchScreen.storyboard in Resources */,
 				90A175B125BC356C00AF3694 /* CategoryCell.xib in Resources */,
-				90D68F4C25B8A4A9005D6F1B /* UserDetailViewController.xib in Resources */,
 				90D68F5825B8A77F005D6F1B /* UserCell.xib in Resources */,
-				90D68F4025B8A431005D6F1B /* UsersViewController.xib in Resources */,
 				627DC5B223E5F581006D8615 /* Assets.xcassets in Resources */,
 				62015CBB23EF084C00673EBB /* TopicCell.xib in Resources */,
 			);

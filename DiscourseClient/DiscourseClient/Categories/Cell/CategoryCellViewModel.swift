@@ -15,7 +15,7 @@ class CategoryCellViewModel {
 
     init(category: Category) {
         self.category = category
-        // TODO: Asignar textLabelText, el título de la categoría
+        // Asignar al textLabelText el título de la categoría
         textLabelText = category.name
     }
 }

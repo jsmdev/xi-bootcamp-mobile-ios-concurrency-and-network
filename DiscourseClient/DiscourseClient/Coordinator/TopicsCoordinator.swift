@@ -42,7 +42,7 @@ class TopicsCoordinator: Coordinator {
 
 extension TopicsCoordinator: TopicsCoordinatorDelegate {
     func didSelect(topic: Topic) {
-        /** TODO: Lanzar módulo TopicDetail
+        /** Lanzar módulo TopicDetail
          Para ello tendrás que crear TopicDetailViewModel, TopicDetailViewController.
          Asignar "self" como coordinatorDelegate del módulo: Queremos escuchar eventos que requieren navegación desde ese módulo.
          Asignar el VC al viewDelegate del VM. De esta forma, el VC se enterará de lo necesario para pintar la UI

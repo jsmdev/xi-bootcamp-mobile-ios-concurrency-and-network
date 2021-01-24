@@ -31,7 +31,7 @@ class UsersViewModel {
     }
 
     func viewWasLoaded() {
-        /** TODO:
+        /**
          Recuperar el listado de latest Users del dataManager
          Asignar el resultado a la lista de viewModels (que representan celdas de la interfaz
          Avisar a la vista de que ya tenemos Users listos para pintar
@@ -42,9 +42,14 @@ class UsersViewModel {
                     self?.userViewModels = usersResponse?.directoryItems.map({ directoryItem -> UserCellViewModel in
                         return UserCellViewModel(user: directoryItem.user)
                     }) ?? [UserCellViewModel]()
-                    self?.viewDelegate?.usersFetched()
-                case .failure:
-                    self?.viewDelegate?.errorFetchingUsers()
+                    DispatchQueue.main.async {
+                        self?.viewDelegate?.usersFetched()
+                    }
+                case .failure(let error):
+                    print("Error when fetching users: \(error)")
+                    DispatchQueue.main.async {
+                        self?.viewDelegate?.errorFetchingUsers()
+                    }
             }
         }
     }

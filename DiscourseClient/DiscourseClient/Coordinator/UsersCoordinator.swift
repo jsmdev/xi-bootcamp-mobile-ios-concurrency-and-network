@@ -38,7 +38,7 @@ class UsersCoordinator: Coordinator {
 
 extension UsersCoordinator: UsersCoordinatorDelegate {
     func didSelect(user: User) {
-        /** TODO: Lanzar módulo UserDetail
+        /** Lanzar módulo UserDetail
          Para ello tendrás que crear UserDetailViewModel, UserDetailViewController.
          Asignar "self" como coordinatorDelegate del módulo: Queremos escuchar eventos que requieren navegación desde ese módulo.
          Asignar el VC al viewDelegate del VM. De esta forma, el VC se enterará de lo necesario para pintar la UI

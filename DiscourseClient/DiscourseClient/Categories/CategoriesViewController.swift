@@ -68,7 +68,7 @@ extension CategoriesViewController: UITableViewDataSource {
             cell.viewModel = cellViewModel
             return cell
         }
-
+        
         fatalError()
     }
 }

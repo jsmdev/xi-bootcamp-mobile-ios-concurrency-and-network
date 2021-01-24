@@ -9,7 +9,6 @@
 import Foundation
 
 struct DeleteSingleTopicRequest: APIRequest {
-
     typealias Response = VoidResponse
 
     let id: Int

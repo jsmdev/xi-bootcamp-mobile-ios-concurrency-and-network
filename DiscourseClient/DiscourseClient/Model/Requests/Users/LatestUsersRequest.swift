@@ -10,19 +10,10 @@ import Foundation
 
 /// Implementación de la request que obtiene los latest users
 struct LatestUsersRequest: APIRequest {
-    
     typealias Response = LatestUsersResponse
 
     let period = "all"
     let order = "topic_count"
-
-//    let period: String
-//    let order: String
-//
-//    init(period: String, order: String) {
-//        self.period = period
-//        self.order = order
-//    }
 
     var method: Method {
         return .GET

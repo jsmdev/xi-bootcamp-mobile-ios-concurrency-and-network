@@ -46,9 +46,13 @@ class TopicDetailViewModel {
                     self?.labelTopicNameText = topicResponse?.title
                     self?.labelPostsNumberText = "\(topicResponse?.postsCount ?? 0)"
                     self?.candDelete = topicResponse?.details.canDelete
-                    self?.viewDelegate?.topicDetailFetched()
+                    DispatchQueue.main.async {
+                        self?.viewDelegate?.topicDetailFetched()
+                    }
                 case .failure:
-                    self?.viewDelegate?.errorFetchingTopicDetail()
+                    DispatchQueue.main.async {
+                        self?.viewDelegate?.errorFetchingTopicDetail()
+                    }
             }
         }
     }
@@ -61,10 +65,14 @@ class TopicDetailViewModel {
         topicDetailDataManager.deleteTopic(id: self.topicID) { [weak self] result in
             switch result {
                 case .success:
-                    self?.coordinatorDelegate?.topicDeletedSuccessfully()
+                    DispatchQueue.main.async {
+                        self?.coordinatorDelegate?.topicDeletedSuccessfully()
+                    }
                 case .failure(let error):
-                    print(error)
-                    self?.viewDelegate?.errorDeletingTopic()
+                    print("Error when deleting topic: \(error)")
+                    DispatchQueue.main.async {
+                        self?.viewDelegate?.errorDeletingTopic()
+                    }
             }
         }
     }

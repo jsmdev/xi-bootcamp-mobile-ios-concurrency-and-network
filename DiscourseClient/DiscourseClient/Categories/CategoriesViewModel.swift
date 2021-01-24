@@ -25,7 +25,7 @@ class CategoriesViewModel {
     }
 
     func viewWasLoaded() {
-        /** TODO:
+        /**
          Recuperar el listado de categories del dataManager
          Asignar el resultado a la lista de viewModels (que representan celdas de la interfaz)
          Avisar a la vista de que ya tenemos categories listos para pintar
@@ -36,9 +36,14 @@ class CategoriesViewModel {
                     self?.categoryViewModels = categoriesResponse?.categoryList.categories.map({ category -> CategoryCellViewModel in
                         return CategoryCellViewModel(category: category)
                     }) ?? [CategoryCellViewModel]()
-                    self?.viewDelegate?.categoriesFetched()
-                case .failure:
-                    self?.viewDelegate?.errorFetchingCategories()
+                    DispatchQueue.main.async {
+                        self?.viewDelegate?.categoriesFetched()
+                    }
+                case .failure(let error):
+                    print("Error when fetching categories: \(error)")
+                    DispatchQueue.main.async {
+                        self?.viewDelegate?.errorFetchingCategories()
+                    }
             }
         }
     }

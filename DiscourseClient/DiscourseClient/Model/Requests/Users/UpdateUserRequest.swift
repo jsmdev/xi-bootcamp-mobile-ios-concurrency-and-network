@@ -9,7 +9,6 @@
 import Foundation
 
 struct UpdateUserRequest: APIRequest {
-
     typealias Response = SingleUserResponse
 
     let username: String
