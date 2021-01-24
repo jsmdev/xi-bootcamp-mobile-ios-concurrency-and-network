@@ -32,7 +32,7 @@ class DiscourseClientRemoteDataManagerImpl: DiscourseClientRemoteDataManager {
     }
 
     func addTopic(title: String, raw: String, completion: @escaping (Result<AddNewTopicResponse?, Error>) -> ()) {
-        let request = CreateTopicRequest(title: title, raw: raw)
+        let request = AddTopicRequest(title: title, raw: raw)
         session.send(request: request) { result in
             completion(result)
         }

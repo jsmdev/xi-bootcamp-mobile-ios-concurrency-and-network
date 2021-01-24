@@ -1,5 +1,5 @@
 //
-//  CreateTopicRequest.swift
+//  AddTopicRequest.swift
 //  Eh-Ho
 //
 //  Created by Ignacio Garcia Sainz on 17/07/2019.
@@ -9,7 +9,7 @@
 import Foundation
 
 // TODO: Implementar las propiedades de esta request
-struct CreateTopicRequest: APIRequest {
+struct AddTopicRequest: APIRequest {
     
     typealias Response = AddNewTopicResponse
     
