@@ -16,9 +16,10 @@ class UserCell: UITableViewCell {
     var viewModel: UserCellViewModel? {
         didSet {
             guard let viewModel = viewModel else { return }
+            viewModel.delegate = self
             nameLabel?.text = viewModel.nameLabelText
             username?.text = viewModel.usernameLabelText
-            setFotoImage(with: viewModel.imageStringURL)
+            setUserPhoto()
         }
     }
 
@@ -38,16 +39,17 @@ class UserCell: UITableViewCell {
         username?.text = nil
     }
 
-    private func setFotoImage(with imagePath: String?) {
-        guard let imageString = imagePath, let imageURL: URL = URL(string: imageString) else { return }
+    func setUserPhoto() {
+        DispatchQueue.main.async {
+            self.fotoImageView?.image = self.viewModel?.userImage
+        }
+    }
+}
 
-        DispatchQueue.global(qos: .userInitiated).async {
-            guard let imageData: Data = try? Data(contentsOf: imageURL) else { return }
-            let image: UIImage? = UIImage(data: imageData)
-
-            DispatchQueue.main.async {
-                self.fotoImageView?.image = image
-            }
+extension UserCell: UserCellViewModelDelegate {
+    func didDownload(image: UIImage?) {
+        DispatchQueue.main.async {
+            self.fotoImageView?.image = self.viewModel?.userImage
         }
     }
 }
